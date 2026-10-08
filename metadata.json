@@ -1,0 +1,6 @@
+{
+  "name": "DX Security - Surveillance & Smart Security Systems",
+  "description": "DX Security is Bangladesh's premier smart security provider offering CCTV cameras, NVR/DVR systems, video intercoms, and access control with bKash, Nagad, and Cash on Delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
