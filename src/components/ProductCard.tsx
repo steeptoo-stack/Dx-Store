@@ -28,12 +28,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Product Image Area */}
       <div className="relative aspect-[4/3] bg-slate-950 overflow-hidden cursor-pointer" onClick={() => onOpenQuickView(product)}>
         <img
-          src={product.mainImage || (product.images && product.images[0]) || '/placeholder-security.svg'}
+          src={product.mainImage || (product.images && product.images[0]) || './placeholder-security.svg'}
           alt={product.name}
           className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
           loading="lazy"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = '/placeholder-security.svg';
+            (e.target as HTMLImageElement).src = './placeholder-security.svg';
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />

@@ -1,4 +1,4 @@
-export const DEFAULT_PRODUCT_PLACEHOLDER = '/placeholder-security.svg';
+export const DEFAULT_PRODUCT_PLACEHOLDER = './placeholder-security.svg';
 
 export function getProductMainImage(product?: { mainImage?: string; images?: string[] } | null): string {
   if (!product) return DEFAULT_PRODUCT_PLACEHOLDER;

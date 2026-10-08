@@ -68,6 +68,11 @@ export const ProductImageManager: React.FC<ProductImageManagerProps> = ({
           });
 
           if (!res.ok) {
+            // Static hosting fallback (e.g. GitHub Pages without Node backend)
+            if (res.status === 404 || res.status === 502 || res.status === 503) {
+              resolve(base64Data);
+              return;
+            }
             const errData = await res.json().catch(() => ({}));
             throw new Error(errData.error || 'Image upload failed. Please try again.');
           }
@@ -75,6 +80,11 @@ export const ProductImageManager: React.FC<ProductImageManagerProps> = ({
           const data = await res.json();
           resolve(data.url);
         } catch (err: any) {
+          // If network error (static GitHub Pages), use the base64 data URL directly
+          if (reader.result) {
+            resolve(reader.result as string);
+            return;
+          }
           reject(err);
         }
       };
@@ -284,7 +294,7 @@ export const ProductImageManager: React.FC<ProductImageManagerProps> = ({
                       alt={`Product thumbnail ${idx + 1}`} 
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/placeholder-security.svg';
+                        (e.target as HTMLImageElement).src = './placeholder-security.svg';
                       }}
                     />
 

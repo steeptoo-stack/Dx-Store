@@ -20,11 +20,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   const displayPrice = product.discountPrice ?? product.price;
   const rawImages = (product.images && product.images.length > 0) 
     ? product.images 
-    : (product.mainImage ? [product.mainImage] : ['/placeholder-security.svg']);
-  const allImages = rawImages.length > 0 ? rawImages : ['/placeholder-security.svg'];
+    : (product.mainImage ? [product.mainImage] : ['./placeholder-security.svg']);
+  const allImages = rawImages.length > 0 ? rawImages : ['./placeholder-security.svg'];
 
   const [selectedImage, setSelectedImage] = useState(
-    product.mainImage || (product.images && product.images[0]) || '/placeholder-security.svg'
+    product.mainImage || (product.images && product.images[0]) || './placeholder-security.svg'
   );
 
   const handleAdd = () => {

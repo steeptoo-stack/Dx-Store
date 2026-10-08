@@ -375,11 +375,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {cart.map(({ product, quantity }) => (
                     <div key={product.id} className="flex items-center gap-2.5 text-xs bg-slate-900/50 p-2 rounded-xl border border-slate-850">
                       <img
-                        src={product.mainImage || (product.images && product.images[0]) || '/placeholder-security.svg'}
+                        src={product.mainImage || (product.images && product.images[0]) || './placeholder-security.svg'}
                         alt={product.name}
                         className="w-10 h-10 object-cover rounded-lg border border-slate-800 shrink-0"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/placeholder-security.svg';
+                          (e.target as HTMLImageElement).src = './placeholder-security.svg';
                         }}
                       />
                       <div className="min-w-0 flex-1">

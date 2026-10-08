@@ -97,9 +97,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     className="p-3 bg-slate-950/70 border border-slate-800 rounded-2xl flex items-center gap-3"
                   >
                     <img
-                      src={product.mainImage || (product.images && product.images[0])}
+                      src={product.mainImage || (product.images && product.images[0]) || './placeholder-security.svg'}
                       alt={product.name}
                       className="w-16 h-16 object-cover rounded-xl border border-slate-800 shrink-0"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = './placeholder-security.svg';
+                      }}
                     />
 
                     <div className="flex-1 min-w-0">
